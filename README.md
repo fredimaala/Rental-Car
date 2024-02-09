@@ -17,19 +17,19 @@ To solve the task, proceed as follows:
 
 # Current business requirements
 
-- Rental cars are categorized into 4 classes: Compact, Electric, Cabrio, Racer.
+- Rental cars are categorized into 4 classes: Compact, Electric, Cabrio, Racer.(olemas)
 
-- Individuals under the age of 18 are ineligible to rent a car.
-- Those aged 18-21 can only rent Compact cars.
-- For Racers, the price is increased by 50% if the driver is 25 years old or younger (except during the low season).
+- Individuals under the age of 18 are ineligible to rent a car.(töötab)
+- Those aged 18-21 can only rent Compact cars.(töötab)
+- For Racers, the price is increased by 50% if the driver is 25 years old or younger (except during the low season).(töötab)
 
-- Low season is from November until end of March. 
-- High season is from April until end of October.
-- If renting in High season, price is increased by 15%.
+- Low season is from November until end of March. (töötab)
+- High season is from April until end of October. (töötab)
+- If renting in High season, price is increased by 15%.(töötab)
 
-- If renting for more than 10 days, price is decresed by 10% (except during the high season).
+- If renting for more than 10 days, price is decresed by 10% (except during the high season).(töötab)
 
-- The minimum rental price per day is equivalent to the age of the driver.
+- The minimum rental price per day is equivalent to the age of the driver.(töötab)
 
 # New business requirements (to be implemented)
 
