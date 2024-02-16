@@ -15,6 +15,11 @@ To solve the task, proceed as follows:
 8. Grade is awarded to students who:
    -- Submits and shows a pull request with appropriately structured code.
 
+# Test's
+To run tests – npx jest
+To run tests with coverage – npx jest --coverage
+Write test to assure 100% coverage. 
+
 # Current business requirements
 
 - Rental cars are categorized into 4 classes: Compact, Electric, Cabrio, Racer.(olemas)
