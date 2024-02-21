@@ -41,3 +41,10 @@ Write test to assure 100% coverage.
 - Individuals holding a driver's license for less than a year are ineligible to rent. 
 - If the driver's license has been held for less than two years, the rental price is increased by 30%.
 - If the driver's license has been held for less than three years, then an additional 15 euros will be added to the daily rental price during high season. 
+
+# Weekday/Weekend Pricing:
+
+- Write tests to ensure that pricing is different for weekdays and weekends. Write tests to verify correctly determined price based on the rental period.
+- Implement functionality to have different pricing for weekdays and weekends. Weekdays have regular price and weekend days have 5% price increase.
+- Example 1: 50 year old driver rents a car for three days: Monday, Tuesday, Wednesday - Total price $150
+- Example 2: 50 year old driver rents a car for three days: Thursday, Friday, Saturday - Total price $152.50

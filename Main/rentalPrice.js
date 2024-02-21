@@ -1,6 +1,7 @@
 function price(pickupDate, dropoffDate, type, driversAge, licenceAge) {
     const totalDays = getDays(pickupDate, dropoffDate);
     const season = getSeason(pickupDate, dropoffDate);
+    const weekdays = getWeekdays(pickupDate, dropoffDate);
 
     if (isDriverTooYoung(driversAge)) {
         return "Driver too young - cannot quote the price";
@@ -16,6 +17,7 @@ function price(pickupDate, dropoffDate, type, driversAge, licenceAge) {
 
     let rentalprice = calculateBasePrice(driversAge, totalDays);
 
+    rentalprice = applyWeekendSurcharge(weekdays, driversAge, rentalprice);
     rentalprice = applyLicenseAgeSurcharge(licenceAge, rentalprice);
     rentalprice = applyHighSeasonSurcharge(licenceAge, season, totalDays, rentalprice);
     rentalprice = applyRacerSurcharge(type, driversAge, season, rentalprice);
@@ -54,6 +56,23 @@ function getSeason(pickupDate, dropoffDate) {
     }
 }
 
+function getWeekdays(pickupDate, dropoffDate) {
+    const firstDate = new Date(pickupDate);
+    const secondDate = new Date(dropoffDate);
+
+    let weekdays = 0;
+
+    for (let current = firstDate; current <= secondDate; current.setDate(current.getDate() + 1)) {
+        const dayOfWeek = current.getDay();
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+            weekdays++;
+        }
+    }
+
+    return weekdays;
+}
+
+
 function isDriverTooYoung(driversAge) {
     return driversAge < 18;
 }
@@ -88,6 +107,12 @@ function applyHighSeasonMultiplier(season, rentalprice) {
 
 function applyLowSeasonDiscount(days, season, rentalprice) {
     return days > 10 && season === "Low" ? rentalprice * 0.9 : rentalprice;
+}
+
+function applyWeekendSurcharge(weekdays, driversAge, rentalprice) {
+    const weekendDays = totalDays - weekdays;
+    const weekendSurcharge = weekendDays * 0.05 * driversAge;
+    return rentalprice + weekendSurcharge;
 }
 
 exports.price = price;
